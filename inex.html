@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRS 2025 연간 리포트</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans CJK KR', 'Noto Sans KR', 'Malgun Gothic', '맑은 고딕', sans-serif;
+            font-size: 11pt;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #fff;
+            padding: 40px 60px;
+        }
+        
+        /* 페이지 설정 */
+        @page {
+            size: A4;
+            margin: 25mm 20mm;
+        }
+        
+        /* 페이지 나눔 */
+        .page-break {
+            page-break-after: always;
+        }
+        
+        /* 헤더 */
+        .report-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #1a1a1a;
+        }
+        
+        .report-title {
+            font-size: 28pt;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        
+        .report-subtitle {
+            font-size: 12pt;
+            font-weight: 400;
+            color: #666;
+        }
+        
+        .report-date {
+            font-size: 11pt;
+            color: #888;
+            margin-top: 10px;
+        }
+        
+        /* 파트 헤더 */
+        .part-header {
+            background: #f8f9fa;
+            padding: 20px 25px;
+            margin: 40px 0 30px 0;
+            border-left: 5px solid #1a1a1a;
+        }
+        
+        .part-title {
+            font-size: 18pt;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        
+        .part-quote {
+            font-size: 11pt;
+            font-style: italic;
+            color: #555;
+        }
+        
+        /* 섹션 */
+        h2 {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 35px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        h3 {
+            font-size: 12pt;
+            font-weight: 600;
+            color: #333;
+            margin: 20px 0 10px 0;
+        }
+        
+        /* 표 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+        
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background: #f5f5f5;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+        
+        /* 강조 텍스트 */
+        strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        /* 인용구 */
+        blockquote {
+            background: #f8f9fa;
+            border-left: 4px solid #1a1a1a;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #444;
+        }
+        
+        blockquote strong {
+            font-style: normal;
+        }
+        
+        /* 기사 박스 */
+        .article-box {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .article-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+        
+        .article-title-kr {
+            font-size: 10pt;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        .article-meta {
+            font-size: 9pt;
+            color: #888;
+        }
+        
+        .article-link {
+            font-size: 8pt;
+            color: #666;
+            word-break: break-all;
+        }
+        
+        /* 리스트 */
+        ul, ol {
+            margin: 10px 0 10px 25px;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        /* 코드 블록 (다이어그램용) */
+        .diagram {
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 15px 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 10pt;
+            line-height: 1.5;
+            white-space: pre;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        /* 하이라이트 박스 */
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #1a1a1a;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .highlight-box p {
+            font-size: 13pt;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 5px 0;
+        }
+        
+        /* 진행률 바 */
+        .progress-bar {
+            background: #e0e0e0;
+            height: 20px;
+            border-radius: 10px;
+            margin: 5px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: #1a1a1a;
+            height: 100%;
+            border-radius: 10px;
+        }
+        
+        /* 푸터 */
+        .report-footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            text-align: center;
+            color: #888;
+            font-size: 10pt;
+        }
+        
+        /* 아젠다 섹션 */
+        .agenda-item {
+            margin: 25px 0;
+            padding: 15px;
+            background: #fafafa;
+            border-radius: 4px;
+        }
+        
+        .agenda-number {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        
+        /* 비교 표 강조 */
+        .comparison-table th:first-child {
+            width: 30%;
+        }
+        
+        .vs-highlight {
+            background: #e8f4e8 !important;
+        }
+        
+        /* 수치 강조 */
+        .big-number {
+            font-size: 24pt;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+        
+        .small-label {
+            font-size: 10pt;
+            color: #666;
+        }
+
+        /* 두 컬럼 레이아웃 */
+        .two-col {
+            display: flex;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .two-col > div {
+            flex: 1;
+        }
+        
+        /* 링크 스타일 */
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* ========== 모바일 반응형 CSS ========== */
+        
+        /* 테이블 래퍼 (가로 스크롤) */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 15px 0;
+        }
+        
+        .table-wrapper table {
+            margin: 0;
+            min-width: 400px;
+        }
+        
+        /* 태블릿 (768px 이하) */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 25px 20px;
+                font-size: 10pt;
+            }
+            
+            .report-title {
+                font-size: 22pt;
+            }
+            
+            .report-subtitle {
+                font-size: 11pt;
+            }
+            
+            .part-header {
+                padding: 15px 18px;
+                margin: 30px 0 20px 0;
+            }
+            
+            .part-title {
+                font-size: 15pt;
+            }
+            
+            h2 {
+                font-size: 13pt;
+                margin: 25px 0 12px 0;
+            }
+            
+            h3 {
+                font-size: 11pt;
+            }
+            
+            .highlight-box {
+                padding: 15px;
+            }
+            
+            .highlight-box p {
+                font-size: 11pt;
+            }
+            
+            blockquote {
+                padding: 12px 15px;
+            }
+            
+            .agenda-item {
+                padding: 12px;
+            }
+            
+            .agenda-number {
+                font-size: 12pt;
+            }
+        }
+        
+        /* 모바일 (480px 이하) */
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 15px 12px;
+                font-size: 9.5pt;
+                line-height: 1.6;
+            }
+            
+            .report-header {
+                margin-bottom: 25px;
+                padding-bottom: 20px;
+            }
+            
+            .report-title {
+                font-size: 18pt;
+            }
+            
+            .report-subtitle {
+                font-size: 10pt;
+            }
+            
+            .report-date {
+                font-size: 9pt;
+            }
+            
+            .part-header {
+                padding: 12px 15px;
+                margin: 25px 0 15px 0;
+                border-left-width: 4px;
+            }
+            
+            .part-title {
+                font-size: 13pt;
+                margin-bottom: 6px;
+            }
+            
+            .part-quote {
+                font-size: 9.5pt;
+            }
+            
+            h2 {
+                font-size: 12pt;
+                margin: 20px 0 10px 0;
+                padding-bottom: 6px;
+            }
+            
+            h3 {
+                font-size: 10.5pt;
+                margin: 15px 0 8px 0;
+            }
+            
+            table {
+                font-size: 8.5pt;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+            }
+            
+            .highlight-box {
+                padding: 12px 10px;
+                margin: 15px 0;
+            }
+            
+            .highlight-box p {
+                font-size: 10pt;
+            }
+            
+            blockquote {
+                padding: 10px 12px;
+                margin: 15px 0;
+                font-size: 9.5pt;
+            }
+            
+            .article-box {
+                padding: 10px;
+                margin: 10px 0;
+            }
+            
+            .article-title {
+                font-size: 9.5pt;
+            }
+            
+            .article-title-kr {
+                font-size: 9pt;
+            }
+            
+            .article-meta {
+                font-size: 8pt;
+            }
+            
+            ul, ol {
+                margin: 8px 0 8px 18px;
+            }
+            
+            li {
+                margin: 4px 0;
+            }
+            
+            .agenda-item {
+                padding: 10px;
+                margin: 15px 0;
+            }
+            
+            .agenda-number {
+                font-size: 11pt;
+                margin-bottom: 8px;
+            }
+            
+            /* 15분 루틴 박스 - 모바일에서 세로 배치 */
+            .routine-container {
+                flex-direction: column !important;
+                gap: 15px !important;
+            }
+            
+            .routine-container > div:first-child,
+            .routine-container > div:last-child {
+                width: 100% !important;
+            }
+            
+            .routine-container .plus-sign {
+                transform: rotate(90deg);
+            }
+            
+            /* 큐레이션 다이어그램 - 모바일 */
+            .curation-flow {
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+            
+            .curation-flow .arrow {
+                transform: rotate(90deg);
+            }
+            
+            /* 진행률 바 */
+            .progress-bar {
+                height: 16px;
+            }
+            
+            .report-footer {
+                margin-top: 30px;
+                padding-top: 15px;
+                font-size: 9pt;
+            }
+        }
+        
+        /* 매우 작은 화면 (360px 이하) */
+        @media screen and (max-width: 360px) {
+            body {
+                padding: 10px 8px;
+                font-size: 9pt;
+            }
+            
+            .report-title {
+                font-size: 16pt;
+            }
+            
+            .part-title {
+                font-size: 12pt;
+            }
+            
+            h2 {
+                font-size: 11pt;
+            }
+            
+            table {
+                font-size: 8pt;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 표지 -->
+<div class="report-header">
+    <div class="report-title">TRS 2025 연간 리포트</div>
+    <div class="report-subtitle">Today's Reads and Sights</div>
+    <div class="report-date">2025년 12월 31일</div>
+</div>
+
+<div class="highlight-box">
+    <p>"93분을 3분으로. 매일. 31배."</p>
+    <p style="font-size: 11pt; font-weight: 400; color: #555;">"11,980개를 읽고, 1,198개를 골랐습니다."</p>
+</div>
+
+<!-- ========== PART 1 ========== -->
+<div class="part-header">
+    <div class="part-title">Part 1. TRS 정량 분석</div>
+    <div class="part-quote">"3분 읽고, 12분 듣고. 하루 15분으로 끝."</div>
+</div>
+
+<h2>1. 2025년 핵심 수치</h2>
+
+<h3>뉴스레터</h3>
+<table>
+    <tr><th>항목</th><th>수치</th></tr>
+    <tr><td>직접 읽은 기사</td><td><strong>11,980개</strong></td></tr>
+    <tr><td>엄선하여 전달한 기사</td><td><strong>1,198개</strong></td></tr>
+    <tr><td>선별율</td><td>10% (10개 중 1개)</td></tr>
+    <tr><td>활용 소스</td><td>190개</td></tr>
+    <tr><td>핵심 소스</td><td>8개 (71% 커버)</td></tr>
+</table>
+
+<h3>팟캐스트</h3>
+<table>
+    <tr><th>항목</th><th>수치</th></tr>
+    <tr><td>에피소드</td><td><strong>170개</strong></td></tr>
+    <tr><td>회당 길이</td><td>12분</td></tr>
+    <tr><td>총 콘텐츠</td><td><strong>34시간</strong></td></tr>
+</table>
+
+<h2>2. 시간 효율 분석</h2>
+
+<h3>독자가 직접 탐색한다면</h3>
+<table>
+    <tr><th>단계</th><th>내용</th><th>시간</th></tr>
+    <tr><td>1️⃣</td><td>언론사 방문 + 탐색 (6개 소스)</td><td>36분</td></tr>
+    <tr><td>2️⃣</td><td>기사 판단 (71개 × 30초)</td><td>36분</td></tr>
+    <tr><td>3️⃣</td><td>선별 기사 정독 (7개 × 3분)</td><td>21분</td></tr>
+    <tr><td>⚠️</td><td>선별 과정에서 소요되는 시간</td><td>32분</td></tr>
+    <tr><td></td><td><strong>총</strong></td><td><strong>93분/일</strong></td></tr>
+</table>
+
+<h3>TRS 이용 시</h3>
+<table>
+    <tr><th>항목</th><th>시간</th></tr>
+    <tr><td>뉴스레터</td><td><strong>3분</strong></td></tr>
+    <tr><td>팟캐스트</td><td>12분 (이동 중)</td></tr>
+    <tr><td><strong>총</strong></td><td><strong>15분/일</strong></td></tr>
+</table>
+
+<h3>비교</h3>
+<table class="comparison-table">
+    <tr><th>구분</th><th>직접 탐색</th><th>TRS</th></tr>
+    <tr><td><strong>일일</strong></td><td>93분</td><td class="vs-highlight"><strong>3분</strong></td></tr>
+    <tr><td><strong>효율</strong></td><td>-</td><td class="vs-highlight"><strong>31배</strong></td></tr>
+    <tr><td><strong>연간 절약</strong></td><td>-</td><td class="vs-highlight"><strong>252시간</strong></td></tr>
+</table>
+
+<h2>3. 큐레이션의 가치</h2>
+
+<h3>11,980개 중 1,198개를 고른 기준</h3>
+
+<div style="background: #f8f9fa; border-radius: 8px; padding: 25px; margin: 20px 0;">
+    <div class="curation-flow" style="display: flex; align-items: flex-start; gap: 15px; flex-wrap: wrap;">
+        <div style="background: #1a1a1a; color: #fff; padding: 12px 20px; border-radius: 6px; font-weight: 600;">
+            11,980개를 직접 읽고
+        </div>
+        <div class="arrow" style="font-size: 20pt; color: #888; padding-top: 8px;">→</div>
+        <div style="flex: 1; min-width: 200px;">
+            <div style="background: #333; color: #fff; padding: 12px 20px; border-radius: 6px; font-weight: 600; margin-bottom: 10px;">
+                그 중 1,198개를 엄선
+            </div>
+            <div style="margin-left: 20px; border-left: 3px solid #666; padding-left: 15px;">
+                <div style="padding: 5px 0; color: #444;">✓ 지금 꼭 알아야 할 것</div>
+                <div style="padding: 5px 0; color: #444;">✓ 의사결정에 도움이 되는 것</div>
+                <div style="padding: 5px 0; color: #444;">✓ 앞으로의 흐름을 보여주는 것</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>TRS는 <strong>"무엇을 읽지 말아야 하는가"</strong>가 아니라 <strong>"지금 무엇을 읽어야 하는가"</strong>를 알려드립니다.</p>
+
+<h3>선별의 의미</h3>
+<table>
+    <tr><th>관점</th><th>설명</th></tr>
+    <tr><td><strong>적시성</strong></td><td>그 시점에 가장 중요한 기사</td></tr>
+    <tr><td><strong>맥락</strong></td><td>흐름과 배경을 이해하는 데 필요한 기사</td></tr>
+    <tr><td><strong>실용성</strong></td><td>의사결정과 업무에 실제로 도움이 되는 기사</td></tr>
+</table>
+
+<blockquote><strong>"11,980개를 읽었습니다. 그 중 꼭 봐야 할 1,198개를 골랐습니다."</strong></blockquote>
+
+<h2>4. 팟캐스트: 34시간의 보너스</h2>
+
+<table>
+    <tr><th>프레이밍</th><th>내용</th></tr>
+    <tr><td><strong>죽은 시간의 부활</strong></td><td>출퇴근/운동 중 → 학습 시간으로 전환</td></tr>
+    <tr><td><strong>추가 투자</strong></td><td>0분 (어차피 흘러가던 시간)</td></tr>
+    <tr><td><strong>언어 장벽 해소</strong></td><td>영어 기사 → 한국어 음성 설명</td></tr>
+    <tr><td><strong>지속 가능한 습관</strong></td><td>의지력 최소, 정보 습득 최대</td></tr>
+</table>
+
+<blockquote><strong>"어차피 흘러가던 시간, 34시간의 글로벌 인사이트로."</strong></blockquote>
+
+<h2>5. 경제적 가치 (연봉 1억 기준)</h2>
+
+<h3>시간 가치</h3>
+<table>
+    <tr><th>항목</th><th>수치</th></tr>
+    <tr><td>연간 절약 시간</td><td>252시간</td></tr>
+    <tr><td>시간당 가치</td><td>₩50,000</td></tr>
+    <tr><td><strong>시간 절약 가치</strong></td><td><strong>1,261만원</strong></td></tr>
+</table>
+
+<h3>구독료 가치 (8개 핵심 소스)</h3>
+<table>
+    <tr><th>소스</th><th>연간 구독료</th></tr>
+    <tr><td>WSJ</td><td>$480 (67만원)</td></tr>
+    <tr><td>Bloomberg</td><td>$600 (84만원)</td></tr>
+    <tr><td>FT</td><td>$420 (59만원)</td></tr>
+    <tr><td>NYT</td><td>$300 (42만원)</td></tr>
+    <tr><td>The Economist</td><td>$180 (25만원)</td></tr>
+    <tr><td>The Information</td><td>$400 (56만원)</td></tr>
+    <tr><td>Wired</td><td>$30 (4만원)</td></tr>
+    <tr><td>Business Insider</td><td>$150 (21만원)</td></tr>
+    <tr><td><strong>합계</strong></td><td><strong>$2,560 (358만원)</strong></td></tr>
+</table>
+<p style="font-size: 9pt; color: #888;">*환율 ₩1,400/$1 기준</p>
+
+<h3>총 가치</h3>
+<table>
+    <tr><th>항목</th><th>금액</th></tr>
+    <tr><td>시간 절약 가치</td><td>1,261만원</td></tr>
+    <tr><td>구독료 가치</td><td>358만원</td></tr>
+    <tr class="vs-highlight"><td><strong>총 가치</strong></td><td><strong>약 1,619만원</strong></td></tr>
+    <tr><td>🎁 보너스</td><td>34시간 '공짜' 학습 시간</td></tr>
+</table>
+
+<h2>6. 소스 분석</h2>
+
+<h3>Top 8 핵심 소스 (전체의 71%)</h3>
+<table>
+    <tr><th>순위</th><th>소스</th><th>기사 수</th><th>비율</th></tr>
+    <tr><td>1</td><td>WSJ</td><td>198</td><td>16.5%</td></tr>
+    <tr><td>2</td><td>Bloomberg</td><td>176</td><td>14.7%</td></tr>
+    <tr><td>3</td><td>FT</td><td>141</td><td>11.8%</td></tr>
+    <tr><td>4</td><td>NYT</td><td>127</td><td>10.6%</td></tr>
+    <tr><td>5</td><td>The Economist</td><td>77</td><td>6.4%</td></tr>
+    <tr><td>6</td><td>The Information</td><td>69</td><td>5.8%</td></tr>
+    <tr><td>7</td><td>Wired</td><td>41</td><td>3.4%</td></tr>
+    <tr><td>8</td><td>Business Insider</td><td>26</td><td>2.2%</td></tr>
+</table>
+
+<h3>소스 분포</h3>
+<table>
+    <tr><th>빈도</th><th>소스 수</th><th>기사 수</th><th>비율</th></tr>
+    <tr><td>50회 이상</td><td>6개</td><td>788개</td><td>65.8%</td></tr>
+    <tr><td>24회 이상 (주1회)</td><td>8개</td><td>855개</td><td>71.4%</td></tr>
+    <tr><td>5회 미만</td><td>165개</td><td>211개</td><td>17.6%</td></tr>
+</table>
+
+<blockquote><strong>"190개 소스를 모니터링하지만, 8개 핵심 소스가 71%를 커버"</strong></blockquote>
+
+<h2>7. TRS 15분 루틴</h2>
+
+<div class="routine-container" style="display: flex; align-items: center; justify-content: center; gap: 20px; margin: 25px 0; padding: 25px; background: #f8f9fa; border-radius: 8px; flex-wrap: wrap;">
+    <div style="border: 2px solid #333; border-radius: 8px; padding: 20px 30px; text-align: center; background: #fff; min-width: 140px;">
+        <div style="font-size: 20pt; margin-bottom: 5px;">📰</div>
+        <div style="font-weight: 600; font-size: 12pt;">읽기</div>
+        <div style="font-size: 18pt; font-weight: 700; margin: 10px 0;">3분</div>
+        <div style="font-size: 10pt; color: #666; margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd;">아침<br>책상에서</div>
+    </div>
+    <div class="plus-sign" style="font-size: 24pt; font-weight: 300; color: #888;">+</div>
+    <div style="border: 2px solid #333; border-radius: 8px; padding: 20px 30px; text-align: center; background: #fff; min-width: 140px;">
+        <div style="font-size: 20pt; margin-bottom: 5px;">🎧</div>
+        <div style="font-weight: 600; font-size: 12pt;">듣기</div>
+        <div style="font-size: 18pt; font-weight: 700; margin: 10px 0;">12분</div>
+        <div style="font-size: 10pt; color: #666; margin-top: 15px; padding-top: 10px; border-top: 1px solid #ddd;">출퇴근<br>이동 중</div>
+    </div>
+</div>
+
+<table>
+    <tr><th>뉴스레터</th><th>팟캐스트</th></tr>
+    <tr><td>93분 → 3분</td><td>+0분 투자</td></tr>
+    <tr><td>31배 효율</td><td>34시간 보너스</td></tr>
+    <tr><td>꼭 봐야 할 것만</td><td>죽은 시간 → 학습 시간</td></tr>
+</table>
+
+<h2>8. 지속 가능한 습관</h2>
+
+<h3>93분 vs 3분: 1년을 지속할 수 있는가?</h3>
+<table class="comparison-table">
+    <tr><th></th><th>직접 탐색 (93분/일)</th><th>TRS (3분/일)</th></tr>
+    <tr><td><strong>일일 부담</strong></td><td>1.5시간+</td><td class="vs-highlight">3분</td></tr>
+    <tr><td><strong>의지력 소모</strong></td><td>높음</td><td class="vs-highlight">최소</td></tr>
+    <tr><td><strong>168일 지속</strong></td><td>쉽지 않음</td><td class="vs-highlight">자연스러움</td></tr>
+</table>
+
+<blockquote>
+    <strong>"매일 글로벌 뉴스를 챙겨보겠다"</strong> → 의지가 필요한 일<br><br>
+    <strong>"아침에 3분, 출퇴근길에 12분"</strong> → 일상에 녹아드는 루틴
+</blockquote>
+
+<h3>93분이 부담스러운 이유</h3>
+<ul>
+    <li>6개 언론사를 매일 방문해야 함</li>
+    <li>71개 기사를 훑어봐야 함</li>
+    <li>영어 원문을 직접 읽어야 함</li>
+    <li>중요한 것과 그렇지 않은 것을 매번 판단해야 함</li>
+</ul>
+<p><strong>→ 바쁜 일상에서 이 루틴을 꾸준히 유지하려면 상당한 의지력이 필요합니다.</strong></p>
+
+<h3>TRS가 루틴이 될 수 있는 이유</h3>
+<table>
+    <tr><th>요소</th><th>설명</th></tr>
+    <tr><td><strong>짧은 시간</strong></td><td>3분이면 끝 (커피 한 잔 마시는 시간)</td></tr>
+    <tr><td><strong>이미 선별됨</strong></td><td>무엇을 읽을지 고민할 필요 없음</td></tr>
+    <tr><td><strong>한국어 요약</strong></td><td>영어 해석에 에너지 쓸 필요 없음</td></tr>
+    <tr><td><strong>팟캐스트 병행</strong></td><td>이동 시간을 학습 시간으로 전환</td></tr>
+</table>
+
+<blockquote><strong>"TRS는 글로벌 비즈니스 정보 습득을 꾸준히 이어갈 수 있는 루틴으로 만들어줍니다."</strong></blockquote>
+
+<div class="highlight-box">
+    <p>"93분을 3분으로. 매일. 31배."</p>
+    <p>"11,980개를 읽고, 1,198개를 골랐습니다."</p>
+    <p>"책상에선 3분, 길에선 12분. 세상이 읽힙니다."</p>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== PART 2 ========== -->
+<div class="part-header">
+    <div class="part-title">Part 2. 2025년 콘텐츠 흐름</div>
+    <div class="part-quote">"AI 혁명은 전력이라는 물리적 한계와, 중국이라는 지정학적 변수 안에서 전개되고 있다."</div>
+</div>
+
+<h2>1. 2025년 핵심 내러티브</h2>
+
+<h3>Tech = AI + Power + China</h3>
+<p>2025년 TRS가 다룬 콘텐츠의 핵심 프레임입니다.</p>
+
+<table>
+    <tr><th>영역</th><th>기사 수</th><th>비율</th></tr>
+    <tr><td><strong>AI</strong></td><td>437개</td><td>36.5%</td></tr>
+    <tr><td><strong>China</strong></td><td>148개</td><td>12.4%</td></tr>
+    <tr><td><strong>Energy/Power</strong></td><td>66개</td><td>5.5%</td></tr>
+    <tr class="vs-highlight"><td>통합 생태계</td><td>583개</td><td><strong>48.7%</strong></td></tr>
+</table>
+
+<p>AI는 더 이상 독립된 기술 섹터가 아닙니다. 전력 인프라(Power)와 지정학(China)과 불가분하게 얽혀 있습니다.</p>
+
+<h2>2. 분기별 흐름</h2>
+
+<h3>Q2 (4-6월): 트럼프 100일과 AI 전쟁의 서막</h3>
+<p><strong>키워드</strong>: Trump/관세 12.7% → AI 45.3%로 전환</p>
+
+<table>
+    <tr><th>테마</th><th>비율</th></tr>
+    <tr><td>AI</td><td>45.3%</td></tr>
+    <tr><td>Trump/관세</td><td>12.7%</td></tr>
+    <tr><td>China</td><td>12.3%</td></tr>
+    <tr><td>Crypto</td><td>10.1%</td></tr>
+</table>
+
+<p><strong>주요 흐름</strong>:</p>
+<ul>
+    <li>트럼프 2기 출범과 관세 전쟁 재점화</li>
+    <li>OpenAI-Microsoft 균열 시작</li>
+    <li>AI 경쟁의 지정학적 프레임 형성</li>
+</ul>
+
+<div class="article-box">
+    <div class="article-title">"Trump's first 100 days are the worst for the stock market since Nixon"</div>
+    <div class="article-title-kr">트럼프의 첫 100일, 닉슨 이후 최악의 주식시장 기록</div>
+    <div class="article-meta">[2025-04-29] CNBC</div>
+</div>
+
+<div class="article-box">
+    <div class="article-title">"Altman and Nadella, Who Ignited the Modern AI Boom Together, Are Drifting Apart"</div>
+    <div class="article-title-kr">현대 AI 붐을 함께 점화한 알트만과 나델라, 멀어지다</div>
+    <div class="article-meta">[2025-04-30] WSJ</div>
+</div>
+
+<h3>Q3 (7-9월): AI 인프라 전쟁과 중국의 반격</h3>
+<p><strong>키워드</strong>: AI 53.4% | Chip 9.3% | Power 부상</p>
+
+<table>
+    <tr><th>테마</th><th>비율</th></tr>
+    <tr><td>AI</td><td>53.4%</td></tr>
+    <tr><td>China</td><td>13.0%</td></tr>
+    <tr><td>Chip</td><td>9.3%</td></tr>
+    <tr><td>Crypto</td><td>9.1%</td></tr>
+</table>
+
+<p><strong>주요 흐름</strong>:</p>
+<ul>
+    <li>AI 전력 소비 문제 본격 대두</li>
+    <li>데이터센터 인프라 병목 현상</li>
+    <li>중국의 AI 역습과 오픈소스 전략</li>
+</ul>
+
+<div class="article-box">
+    <div class="article-title">"The AI explosion means millions are paying more for electricity"</div>
+    <div class="article-title-kr">AI 폭발로 수백만 명이 더 비싼 전기료를 내고 있다</div>
+    <div class="article-meta">[2025-07-29] Washington Post</div>
+</div>
+
+<div class="article-box">
+    <div class="article-title">"China Is Quickly Eroding America's Lead in the Global AI Race"</div>
+    <div class="article-title-kr">중국, 글로벌 AI 경쟁에서 미국의 리드를 빠르게 잠식 중</div>
+    <div class="article-meta">[2025-07-03] WSJ</div>
+</div>
+
+<h3>Q4 (10-12월): 규제의 도래와 새로운 병목</h3>
+<p><strong>키워드</strong>: AI 61.3% (최고점) | Energy 7.8% (급증)</p>
+
+<table>
+    <tr><th>테마</th><th>비율</th></tr>
+    <tr><td>AI</td><td>61.3%</td></tr>
+    <tr><td>China</td><td>12.8%</td></tr>
+    <tr><td>Chip</td><td>9.0%</td></tr>
+    <tr><td>Energy</td><td>7.8%</td></tr>
+</table>
+
+<p><strong>주요 흐름</strong>:</p>
+<ul>
+    <li>AI 규제 프레임워크 형성</li>
+    <li>전력 병목이 경제 성장 제약으로 부상</li>
+    <li>데이터센터의 대안 전력원 모색</li>
+</ul>
+
+<div class="article-box">
+    <div class="article-title">"The power crunch threatening America's AI ambitions"</div>
+    <div class="article-title-kr">미국 AI 야망을 위협하는 전력 위기</div>
+    <div class="article-meta">[2025-12-09] FT</div>
+</div>
+
+<div class="article-box">
+    <div class="article-title">"Electricity Is Now Holding Back Growth Across the Global Economy"</div>
+    <div class="article-title-kr">전력이 이제 전 세계 경제 성장의 발목을 잡고 있다</div>
+    <div class="article-meta">[2025-12-22] Bloomberg</div>
+</div>
+
+<h2>3. AI 비율 추이</h2>
+
+<div style="margin: 20px 0;">
+    <p><strong>Q2: 45.3%</strong></p>
+    <div class="progress-bar"><div class="progress-fill" style="width: 45.3%;"></div></div>
+    <p><strong>Q3: 53.4%</strong></p>
+    <div class="progress-bar"><div class="progress-fill" style="width: 53.4%;"></div></div>
+    <p><strong>Q4: 61.3%</strong></p>
+    <div class="progress-bar"><div class="progress-fill" style="width: 61.3%;"></div></div>
+</div>
+
+<p>AI 관련 기사가 분기마다 증가하며, Q4에는 전체의 <strong>61%</strong>를 차지했습니다.</p>
+
+<h2>4. Energy/Power: 급부상한 테마</h2>
+
+<h3>분기별 Energy 기사 수</h3>
+<table>
+    <tr><th>분기</th><th>기사 수</th><th>증가율</th></tr>
+    <tr><td>Q2</td><td>12개</td><td>-</td></tr>
+    <tr><td>Q3</td><td>22개</td><td>+83%</td></tr>
+    <tr class="vs-highlight"><td>Q4</td><td>32개</td><td><strong>+167%</strong> (vs Q2)</td></tr>
+</table>
+
+<p><strong>12월만</strong>: Energy 관련 13개 (연중 최고)</p>
+
+<blockquote><strong>"Power가 AI의 진정한 제약이다"</strong></blockquote>
+
+<ul>
+    <li>데이터센터 전력 수요 폭증</li>
+    <li>기존 그리드의 한계</li>
+    <li>원자력, 우주 태양광 등 다양한 대안 모색</li>
+</ul>
+
+<div class="page-break"></div>
+
+<h2>5. 10대 선제적 어젠다</h2>
+<p>2025년 TRS가 조기에 포착한 미래 어젠다입니다.</p>
+
+<div class="agenda-item">
+    <div class="agenda-number">1️⃣ AI 인프라/데이터센터 병목</div>
+    <div class="article-box">
+        <div class="article-title">"Wall St. Is All In on A.I. Data Centers. But Are They the Next Bubble?"</div>
+        <div class="article-title-kr">월스트리트는 AI 데이터센터에 올인 중. 하지만 이게 다음 버블일까?</div>
+        <div class="article-meta">[2025-06-04] NYT</div>
+    </div>
+</div>
+
+<div class="agenda-item">
+    <div class="agenda-number">2️⃣ 스테이블코인/토큰화</div>
+    <div class="article-box">
+        <div class="article-title">"Why Stablecoins May Surpass China In U.S. Treasury Holdings By 2028"</div>
+        <div class="article-title-kr">왜 스테이블코인이 2028년까지 미국 국채 보유에서 중국을 추월할 수 있는가</div>
+        <div class="article-meta">[2025-05-20] Forbes</div>
+    </div>
+</div>
+
+<div class="agenda-item">
+    <div class="agenda-number">3️⃣ AI 에이전트/자율 시스템</div>
+    <div class="article-box">
+        <div class="article-title">"Silicon Valley Builds Amazon and Gmail Copycats to Train A.I. Agents"</div>
+        <div class="article-title-kr">실리콘밸리, AI 에이전트 훈련을 위해 아마존·지메일 복제판 구축</div>
+        <div class="article-meta">[2025-12-05] NYT</div>
+    </div>
+</div>
+
+<div class="agenda-item">
+    <div class="agenda-number">4️⃣ 미중 기술 디커플링</div>
+    <div class="article-box">
+        <div class="article-title">"Chinese AI Companies Dodge U.S. Chip Curbs by Flying Suitcases of Hard Drives Abroad"</div>
+        <div class="article-title-kr">중국 AI 기업들, 하드드라이브 여행가방으로 미국 칩 규제 우회</div>
+        <div class="article-meta">[2025-06-18] WSJ</div>
+    </div>
+</div>
+
+<div class="agenda-item">
+    <div class="agenda-number">5️⃣ AI와 일자리/경제 구조 변화</div>
+    <div class="article-box">
+        <div class="article-title">"The Fearless Future: 2025 Global AI Jobs Barometer"</div>
+        <div class="article-title-kr">두려움 없는 미래: 2025 글로벌 AI 일자리 바로미터</div>
+        <div class="article-meta">[2025-06-10] PwC</div>
+    </div>
+</div>
+
+<div class="agenda-item">
+    <div class="agenda-number">6️⃣ 지정학/글로벌 질서 재편</div>
+    <div class="article-box">
+        <div class="article-title">"Australia: caught between a slowing China and a chaotic US"</div>
+        <div class="article-title-kr">호주: 둔화하는 중국과 혼란스러운 미국 사이에 끼다</div>
+        <div class="article-meta">[2025-05-02] FT</div>
+    </div>
+</div>
+
+<div class="agenda-item">
+    <div class="agenda-number">7️⃣ AI 규제/안전</div>
+    <div class="article-box">
+        <div class="article-title">"The Urgency of Interpretability"</div>
+        <div class="article-title-kr">해석가능성의 긴급성</div>
+        <div class="article-meta">[2025-04-29] Dario Amodei</div>
+    </div>
+</div>
+
+<div class="agenda-item">
+    <div class="agenda-number">8️⃣ 에너지 대안 (원자력, 우주 태양광 등)</div>
+    <div class="article-box">
+        <div class="article-title">"Google wants to build solar-powered data centers — in space"</div>
+        <div class="article-title-kr">구글, 우주에 태양광 데이터센터 구축 추진</div>
+        <div class="article-meta">[2025-11-06] Semafor</div>
+    </div>
+</div>
+
+<div class="agenda-item">
+    <div class="agenda-number">9️⃣ AI 의료/바이오</div>
+    <div class="article-box">
+        <div class="article-title">"Frustrated by the Medical System, Patients Turn to A.I."</div>
+        <div class="article-title-kr">의료 시스템에 좌절한 환자들, AI로 눈을 돌리다</div>
+        <div class="article-meta">[2025-11-18] NYT</div>
+    </div>
+</div>
+
+<div class="agenda-item">
+    <div class="agenda-number">🔟 우주/방위산업과 AI</div>
+    <div class="article-box">
+        <div class="article-title">"Why Elon Musk Is Suddenly Talking So Much About Space Data Centers"</div>
+        <div class="article-title-kr">왜 일론 머스크는 갑자기 우주 데이터센터 이야기를 많이 하는가</div>
+        <div class="article-meta">[2025-12-16] The Information</div>
+    </div>
+</div>
+
+<h2>6. 주요 기업 동향</h2>
+
+<h3>언급 빈도 Top 10</h3>
+<table>
+    <tr><th>기업</th><th>언급 수</th></tr>
+    <tr><td>OpenAI</td><td>43</td></tr>
+    <tr><td>Nvidia</td><td>42</td></tr>
+    <tr><td>Google</td><td>39</td></tr>
+    <tr><td>Meta</td><td>20</td></tr>
+    <tr><td>Apple</td><td>19</td></tr>
+    <tr><td>Amazon</td><td>15</td></tr>
+    <tr><td>Anthropic</td><td>14</td></tr>
+    <tr><td>Tesla</td><td>14</td></tr>
+    <tr><td>Microsoft</td><td>11</td></tr>
+</table>
+
+<h3>주요 인물</h3>
+<table>
+    <tr><th>인물</th><th>언급 수</th></tr>
+    <tr><td>Trump</td><td>93</td></tr>
+    <tr><td>Elon Musk</td><td>8</td></tr>
+    <tr><td>Sam Altman</td><td>6</td></tr>
+    <tr><td>Jensen Huang</td><td>5</td></tr>
+</table>
+
+<h2>7. 2025 → 2026 시그널</h2>
+
+<table>
+    <tr><th>영역</th><th>2025 트렌드</th><th>2026 전망</th></tr>
+    <tr><td><strong>AI 모델</strong></td><td>추론 모델 (o1, o3) 부상</td><td>에이전트 생태계 본격화</td></tr>
+    <tr><td><strong>인프라</strong></td><td>데이터센터 급증</td><td>전력 병목 심화 → 다양한 대안 모색</td></tr>
+    <tr><td><strong>AI 규제</strong></td><td>주(州) 단위 규제 시작</td><td>연방/국제 차원 규제 논의 본격화</td></tr>
+    <tr><td><strong>중국</strong></td><td>디커플링 심화</td><td>제3국 경유 우회</td></tr>
+    <tr><td><strong>금융</strong></td><td>스테이블코인 성장</td><td>전통 금융 블록체인 채택</td></tr>
+    <tr><td><strong>로봇</strong></td><td>휴머노이드 프로토타입</td><td>공장 도입 시작</td></tr>
+</table>
+
+<h2>8. 결론: 2025년의 교훈</h2>
+
+<h3>세 가지 발견</h3>
+
+<p><strong>1. AI는 더 이상 독립 섹터가 아니다</strong></p>
+<ul>
+    <li>전체 기사의 61%가 AI 관련 (Q4)</li>
+    <li>Power, China, 규제, 일자리와 불가분</li>
+    <li>"Tech = AI + Power + China" 프레임 유효</li>
+</ul>
+
+<p><strong>2. Power가 진정한 병목이다</strong></p>
+<ul>
+    <li>Energy 기사 167% 증가 (Q2→Q4)</li>
+    <li>데이터센터 전력 수요가 경제 성장 제약</li>
+    <li>원자력, 우주 태양광 등 다양한 대안 모색 본격화</li>
+</ul>
+
+<p><strong>3. 중국의 비대칭 전략</strong></p>
+<ul>
+    <li>국가 주도 전력 인프라 (세계 최대 그리드)</li>
+    <li>오픈소스 AI 전략 (Alibaba, DeepSeek)</li>
+    <li>칩 규제 우회와 HBM 병목</li>
+</ul>
+
+<div class="highlight-box">
+    <p style="font-size: 14pt;">"AI 혁명은 전력이라는 물리적 한계와,<br>중국이라는 지정학적 변수 안에서 전개되고 있다."</p>
+</div>
+
+<div class="report-footer">
+    <p><strong>TRS - Today's Reads and Sights</strong></p>
+    <p><em>Your 15-minute global business briefing</em></p>
+    <p style="margin-top: 10px;">© 2025 TRS. All rights reserved.</p>
+</div>
+
+</body>
+</html>
